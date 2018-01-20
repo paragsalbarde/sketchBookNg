@@ -1,0 +1,15 @@
+<div class="row">
+    <h2>Latest Photos</h2>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy==='all'" (click)="filterBy='all'">All</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy==='AutoDesk'" (click)="filterBy='boats'">AutoDesk</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy==='ArtRage'" (click)="filterBy='camping'">ArtRage</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy==='Paper'" (click)="filterBy='library'">Paper</button>
+    
+    <ul id="thumbnailsList">
+        <li *ngFor="let image of images | async" class="img">
+            <a [routerLink]="['/image', image.$key]">
+            <img src="{{image.url}}" class="tn">
+            </a>
+        </li>
+    </ul>
+</div>
